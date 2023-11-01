@@ -30,26 +30,28 @@ public class FollowCamera : MonoBehaviour
     // LateUpdate is called once per frame, after Update methods have run
     void LateUpdate()
     {
-        if (target)
-        {
-            // Get input from mouse movement
-            x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-            y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+        // if the game is running
+        if (Time.timeScale != 0)
+            if (target)
+            {
+                // Get input from mouse movement
+                x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+                y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-            // Clamp the vertical angle within the min and max limits
-            y = ClampAngle(y, yMinLimit, yMaxLimit);
+                // Clamp the vertical angle within the min and max limits
+                y = ClampAngle(y, yMinLimit, yMaxLimit);
 
-            // Set the rotation of the camera
-            Quaternion rotation = Quaternion.Euler(y, x, 0);
+                // Set the rotation of the camera
+                Quaternion rotation = Quaternion.Euler(y, x, 0);
 
-            // Set the position of the camera
-            Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
-            Vector3 position = rotation * negDistance + target.position;
+                // Set the position of the camera
+                Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
+                Vector3 position = rotation * negDistance + target.position;
 
-            // Update the transform of the camera
-            transform.rotation = rotation;
-            transform.position = position;
-        }
+                // Update the transform of the camera
+                transform.rotation = rotation;
+                transform.position = position;
+            }
     }
 
     // Clamp angle utility function
