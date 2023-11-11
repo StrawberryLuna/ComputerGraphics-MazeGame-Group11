@@ -1,46 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 60; // Set your desired time here
-    public bool timeIsRunning = true;
+    public float timeRemaining = 60; // Set the timer for one minute
+    public TMP_Text timeText; // Reference to the TextMeshPro text component
+    public GameObject gameOverPanel; // Reference to the Game Over panel
 
-    public TMP_Text timeText;
+    private bool timerIsRunning = false;
 
     void Start()
     {
-        timeIsRunning = true;
+        timerIsRunning = true;
+        gameOverPanel.SetActive(false); // Hide the Game Over panel at start
     }
 
     void Update()
     {
-        if (timeIsRunning)
+        if (timerIsRunning)
         {
             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                updateTimer(timeRemaining);
+                UpdateTimerDisplay(timeRemaining);
             }
             else
             {
-                Debug.Log("Game Over!");
+                Debug.Log("Time's Up! Game Over!");
                 timeRemaining = 0;
-                timeIsRunning = false;
+                timerIsRunning = false;
+                gameOverPanel.SetActive(true); // Show the Game Over panel
+                Time.timeScale = 0; // This pauses the game
             }
         }
     }
 
-    void updateTimer(float currentTime)
+    private void UpdateTimerDisplay(float currentTime)
     {
-        currentTime += 1;
-
-        float min = Mathf.FloorToInt(currentTime / 60);
-        float sec = Mathf.FloorToInt(currentTime % 60);
-
-        timeText.text = string.Format("{0:00} : {1:00}", min, sec);
+        currentTime = Mathf.Max(0, currentTime); // Ensure the time doesn't go negative
+        int minutes = Mathf.FloorToInt(currentTime / 60);
+        int seconds = Mathf.FloorToInt(currentTime % 60);
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
