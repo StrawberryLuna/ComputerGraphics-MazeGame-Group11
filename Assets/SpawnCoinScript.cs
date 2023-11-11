@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnCoinScript : MonoBehaviour
 {
     public GameObject theCoin;
+    public GameObject Player;
 
     // Update is called once per frame
     void Update()
@@ -17,6 +18,7 @@ public class SpawnCoinScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("In collision");
             // Destroy the current coin
             Destroy(gameObject);
 

@@ -1396,7 +1396,6 @@ GameObject:
   - component: {fileID: 978483475}
   - component: {fileID: 978483474}
   - component: {fileID: 978483479}
-  - component: {fileID: 978483480}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1532,19 +1531,6 @@ MonoBehaviour:
   speed: 50
   gravityMultiplier: 5
   camera: {fileID: 963194228}
---- !u!114 &978483480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978483473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b70a987f2bc94d969620aca8cbba0ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theCoin: {fileID: 0}
 --- !u!1 &1005683800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,7 +3123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b70a987f2bc94d969620aca8cbba0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theCoin: {fileID: 0}
+  theCoin: {fileID: 2118477625}
+  Player: {fileID: 978483473}
 --- !u!1 &2139285172
 GameObject:
   m_ObjectHideFlags: 0
