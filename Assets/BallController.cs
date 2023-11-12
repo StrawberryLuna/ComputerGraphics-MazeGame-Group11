@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections; // Needed for IEnumerator
 
 public class BallController : MonoBehaviour
 {
@@ -8,10 +9,12 @@ public class BallController : MonoBehaviour
     private Rigidbody rb;
     private Vector3 movement;
     private bool isMoving;
+    private float originalSpeed; // To store the original speed
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        originalSpeed = speed; // Store the original speed
     }
 
     void Update()
@@ -53,5 +56,22 @@ public class BallController : MonoBehaviour
             rb.velocity *= 0.9f;
             rb.angularVelocity *= 0.9f;
         }
+    }
+    // Call this method to activate the speed boost
+    public void ActivateSpeedBoost(float multiplier, float duration)
+    {
+        if (speed == originalSpeed) // Only boost if not already boosted
+        {
+            StartCoroutine(SpeedBoostCoroutine(multiplier, duration));
+        }
+    }
+
+    private IEnumerator SpeedBoostCoroutine(float multiplier, float duration)
+    {
+        speed *= multiplier; // Increase the speed by the multiplier
+
+        yield return new WaitForSeconds(duration); // Wait for the duration of the boost
+
+        speed = originalSpeed; // Reset the speed back to the original value
     }
 }
