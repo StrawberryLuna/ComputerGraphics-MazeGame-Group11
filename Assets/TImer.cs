@@ -6,7 +6,7 @@ public class Timer : MonoBehaviour
     public float timeRemaining = 60; // Set the timer for one minute
     public TMP_Text timeText; // Reference to the TextMeshPro text component
     public GameObject gameOverPanel; // Reference to the Game Over panel
-
+    public AudioSource endSoundEffect;
     private bool timerIsRunning = false;
 
     void Start()
@@ -30,6 +30,7 @@ public class Timer : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
                 gameOverPanel.SetActive(true); // Show the Game Over panel
+                endSoundEffect.Play();
                 Time.timeScale = 0; // This pauses the game
             }
         }
