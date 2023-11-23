@@ -17,8 +17,8 @@ public class GameOverOnCollision : MonoBehaviour
         // Check if the collided object has the tag 'Enemy'
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            deathSoundEffect.Play();
             GameOver();
+            deathSoundEffect.Play();
         }
     }
 

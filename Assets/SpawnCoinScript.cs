@@ -22,8 +22,9 @@ public class SpawnCoinScript : MonoBehaviour
         {
             Debug.Log("In collision");
             // Destroy the current coin
-            collectionSoundEffect.Play();
+            
             Destroy(gameObject);
+            collectionSoundEffect.Play();
 
             // Instantiate a new coin at a random position
             Vector3 randomPosition = new Vector3(Random.Range(-5, 5), 1, Random.Range(-5, 5));
