@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameOverOnCollision : MonoBehaviour
 {
     public GameObject gameOverPanel; // Assign this in the Inspector
+    public AudioSource deathSoundEffect;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class GameOverOnCollision : MonoBehaviour
         // Check if the collided object has the tag 'Enemy'
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            deathSoundEffect.Play();
             GameOver();
         }
     }
@@ -23,6 +25,7 @@ public class GameOverOnCollision : MonoBehaviour
     private void GameOver()
     {
         // Activate the game over panel to show it
+
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
 

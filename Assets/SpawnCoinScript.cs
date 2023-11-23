@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnCoinScript : MonoBehaviour
 {
     public GameObject theCoin;
     public GameObject Player;
+    public AudioSource collectionSoundEffect;
 
     // Update is called once per frame
     void Update()
@@ -20,6 +22,7 @@ public class SpawnCoinScript : MonoBehaviour
         {
             Debug.Log("In collision");
             // Destroy the current coin
+            collectionSoundEffect.Play();
             Destroy(gameObject);
 
             // Instantiate a new coin at a random position
