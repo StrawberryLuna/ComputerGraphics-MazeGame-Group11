@@ -8,10 +8,13 @@ public class setGoal : MonoBehaviour
     public GameObject goalText;
     public GameObject player;
     public GameObject pauseButton;
+    public AudioSource winSoundEffect;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Player")
         {
+            winSoundEffect.Play();
             // show GoalText
             goalText.GetComponent<Text>();
             goalText.SetActive(true);

@@ -207,8 +207,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1102373795}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: OnPlayButton
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: OnClickPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: 1102373793}
   - component: {fileID: 1102373792}
   - component: {fileID: 1102373795}
-  - component: {fileID: 1102373796}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -533,21 +532,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1102373790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9a32d868af0490d9dfd643f27a68b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 171b66ad4d905a54e9deb77620d020e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1102373796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1102373790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245405a760f1fc4bbbc0c6e43f12e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
 --- !u!1 &1252446123
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,8 +753,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1102373796}
-        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+      - m_Target: {fileID: 1102373795}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
         m_MethodName: OnClickQuit
         m_Mode: 1
         m_Arguments:
@@ -1019,8 +1007,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
