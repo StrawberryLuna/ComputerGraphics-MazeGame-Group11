@@ -1,39 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SpawnCoinScript : MonoBehaviour
 {
     public GameObject theCoin;
+    public GameObject Player;
     public AudioSource collectionSoundEffect;
-    public TextMeshProUGUI coinText;
-    private int collectedCoins = 0;
+
+    // Update is called once per frame
     void Update()
     {
-        // Makes the coin spin
+        // Rotate the game object around its local Y-axis
         gameObject.transform.Rotate(0f, 1f, 0f, Space.Self);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.tag == "Player") //original
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.tag == "Player")
         {
-            collectedCoins++;
-            coinText.text = "Points: " + collectedCoins.ToString();
-            Debug.Log("Collected coins: " + collectedCoins);
-
-            collectionSoundEffect.Play();
+            Debug.Log("In collision");
+            // Destroy the current coin
             
-            // Destroys coin
             Destroy(gameObject);
+            collectionSoundEffect.Play();
 
             // Instantiate a new coin at a random position
             Vector3 randomPosition = new Vector3(Random.Range(-5, 5), 1, Random.Range(-5, 5));
             Instantiate(theCoin, randomPosition, Quaternion.identity);
-            
         }
     }
 }
