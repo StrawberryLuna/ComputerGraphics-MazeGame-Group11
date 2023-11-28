@@ -10,6 +10,7 @@ public class SpeedBoost : MonoBehaviour
         if (other.CompareTag("Player")) // Make sure the player has a "Player" tag
         {
             BallController playerMovement = other.GetComponent<BallController>();
+
             if (playerMovement != null)
             {
                 playerMovement.ActivateSpeedBoost(speedMultiplier, duration);

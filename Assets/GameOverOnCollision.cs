@@ -14,18 +14,37 @@ public class GameOverOnCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Check if the collided object has the tag 'Enemy'
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            GameOver();
-            deathSoundEffect.Play();
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            BallController playerController = playerObject?.GetComponent<BallController>();
+            EnemyAI enemyAI = collision.gameObject.GetComponent<EnemyAI>();
+
+            if (playerController != null)
+            {
+                if (playerController.IsShieldActive() && enemyAI != null)
+                {
+                    Vector3 bounceDirection = collision.transform.position - playerObject.transform.position;
+                    enemyAI.BounceOff(bounceDirection);
+                    return; // If shielded, bounce off the enemy and don't trigger Game Over
+                }
+                else if (playerController.IsShieldActive() == false)
+                {
+                    GameOver();
+                    deathSoundEffect.Play();
+                }
+            }
+            else
+            {
+                Debug.LogError("BallController script not found on the player object.");
+            }
         }
     }
+
 
     private void GameOver()
     {
         // Activate the game over panel to show it
-
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
 

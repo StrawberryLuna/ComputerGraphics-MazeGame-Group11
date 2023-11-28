@@ -4,13 +4,16 @@ using System.Collections; // Needed for IEnumerator
 public class BallController : MonoBehaviour
 {
     public float speed = 5.0f;
-    public float gravityMultiplier = 2.0f; // This is our custom gravity scale.
-    public Transform camera; // Reference to the camera transform
+    public float gravityMultiplier = 2.0f;
+    public Transform camera;
+    public AudioSource speedBoostAudioSource; // For speed boost sound
+    public AudioSource shieldAudioSource; // For shield sound
+
     private Rigidbody rb;
     private Vector3 movement;
     private bool isMoving;
-    private float originalSpeed; // To store the original speed
-
+    private float originalSpeed;
+    private bool isShielded = false; // Flag for shield status
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -69,9 +72,33 @@ public class BallController : MonoBehaviour
     private IEnumerator SpeedBoostCoroutine(float multiplier, float duration)
     {
         speed *= multiplier; // Increase the speed by the multiplier
+        speedBoostAudioSource.Play(); // Start playing the speed boost music
 
         yield return new WaitForSeconds(duration); // Wait for the duration of the boost
 
         speed = originalSpeed; // Reset the speed back to the original value
+        speedBoostAudioSource.Stop(); // Stop playing the speed boost music
+    }
+    public void ActivateShield(float duration)
+    {
+        if (!isShielded)
+        {
+            isShielded = true;
+            shieldAudioSource.Play();
+            StartCoroutine(ShieldDuration(duration));
+        }
+    }
+
+    private IEnumerator ShieldDuration(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        isShielded = false;
+        shieldAudioSource.Stop();
+    }
+
+    // Check if the shield is active
+    public bool IsShieldActive()
+    {
+        return isShielded;
     }
 }
