@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class setGoal : MonoBehaviour
 {
     public GameObject goalText;
-    public GameObject player;
     public GameObject pauseButton;
     public AudioSource winSoundEffect;
 
@@ -18,8 +17,6 @@ public class setGoal : MonoBehaviour
             // show GoalText
             goalText.GetComponent<Text>();
             goalText.SetActive(true);
-            // hide Player
-            player.SetActive(false);
             // hide PauseButton
             pauseButton.SetActive(false);
             // pause the game
