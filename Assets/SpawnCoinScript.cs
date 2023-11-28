@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class SpawnCoinScript : MonoBehaviour
 {
-    public GameObject theCoin;
-    public AudioSource collectionSoundEffect;
+    //public AudioSource collectionSoundEffect;
     public TextMeshProUGUI CoinText;
-    private int collectedCoins = 0;
+    private int coin = 0;
     void Update()
     {
         // Makes the coin spin
@@ -19,19 +18,17 @@ public class SpawnCoinScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //if (other.gameObject.tag == "Player") //original
-        if (other.gameObject.CompareTag("Player"))
+        if(other.transform.tag == "CoinTag")
         {
-            collectedCoins++;
-            CoinText.text = "Points: " + collectedCoins.ToString();
-            Debug.Log("Collected coins: " + collectedCoins);
+            coin++;
+            CoinText.text = "Points: " + coin.ToString();
+            Debug.Log("Collected coins: " + coin);
 
-            collectionSoundEffect.Play();
-            // Destroys coin
-            Destroy(gameObject);
+            //collectionSoundEffect.Play();
 
-            // Instantiate a new coin at a random position
-            Vector3 randomPosition = new Vector3(Random.Range(-5, 5), 1, Random.Range(-5, 5));
-            Instantiate(theCoin, randomPosition, Quaternion.identity);
+            Destroy(other.gameObject);
+
+
         }
     }
 }
