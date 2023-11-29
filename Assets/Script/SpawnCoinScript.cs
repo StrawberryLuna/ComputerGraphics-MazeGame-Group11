@@ -5,7 +5,19 @@ using UnityEngine;
 public class SpawnCoinScript : MonoBehaviour
 {
     public TextMeshProUGUI CoinText;
+    public TextMeshProUGUI HighScoreText;
     private int coin = 0;
+    private int highScore = 0;
+    private const string HighScoreKey = "HighScore";
+
+
+    private void Start()
+    {
+        // Load the high score from PlayerPrefs
+        highScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+        UpdateHighScoreText();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,6 +26,13 @@ public class SpawnCoinScript : MonoBehaviour
             coin++;
             CoinText.text = "Points: " + coin.ToString();
             Debug.Log("Collected coins: " + coin);
+            //For highscore based on coin/points
+             if (coin > highScore)
+            {
+                highScore = coin;
+                PlayerPrefs.SetInt(HighScoreKey, highScore);
+                UpdateHighScoreText();
+            }
 
             // Play the coin's collection sound
             AudioSource coinAudioSource = other.gameObject.GetComponent<AudioSource>();
@@ -46,5 +65,9 @@ public class SpawnCoinScript : MonoBehaviour
         Renderer coinRenderer = coin.GetComponent<Renderer>();
         if (coinRenderer != null)
             coinRenderer.enabled = false;
+    }
+    private void UpdateHighScoreText()
+    {
+        HighScoreText.text = "High Score: " + highScore.ToString();
     }
 }
