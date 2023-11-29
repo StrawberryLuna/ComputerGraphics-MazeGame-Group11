@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4505,7 +4505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25e30619332d9f24b98fc05cb5a1257a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 578.9
+      value: 596.29
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25e30619332d9f24b98fc05cb5a1257a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4543,6 +4543,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2239948541223598151, guid: 25e30619332d9f24b98fc05cb5a1257a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.076
+      objectReference: {fileID: 0}
+    - target: {fileID: -2239948541223598151, guid: 25e30619332d9f24b98fc05cb5a1257a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7984867
+      objectReference: {fileID: 0}
+    - target: {fileID: -2239948541223598151, guid: 25e30619332d9f24b98fc05cb5a1257a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2239948541223598151, guid: 25e30619332d9f24b98fc05cb5a1257a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.60201246
+      objectReference: {fileID: 0}
+    - target: {fileID: -2239948541223598151, guid: 25e30619332d9f24b98fc05cb5a1257a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -74.028
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 25e30619332d9f24b98fc05cb5a1257a, type: 3}
       propertyPath: m_Name
       value: Candy_NEW
@@ -4552,7 +4572,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 0b31f4b0e9e26974ab5e6e797ae2e679, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8596036884607676796, guid: 25e30619332d9f24b98fc05cb5a1257a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25e30619332d9f24b98fc05cb5a1257a, type: 3}
