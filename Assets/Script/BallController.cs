@@ -7,6 +7,7 @@ public class BallController : MonoBehaviour
     public float gravityMultiplier = 2.0f;
     public Transform camera;
     public AudioSource speedBoostAudioSource; // For speed boost sound
+    public AudioSource speedDownAudioSource; // For speed down sound
     public AudioSource shieldAudioSource; // For shield sound
 
     private Rigidbody rb;
@@ -78,6 +79,26 @@ public class BallController : MonoBehaviour
 
         speed = originalSpeed; // Reset the speed back to the original value
         speedBoostAudioSource.Stop(); // Stop playing the speed boost music
+    }
+
+    // Call this method to activate the speed down
+    public void ActivateSpeedDown(float multiplier, float duration)
+    {
+        if (speed == originalSpeed) // Only boost if not already boosted
+        {
+            StartCoroutine(SpeedDownCoroutine(multiplier, duration));
+        }
+    }
+
+    private IEnumerator SpeedDownCoroutine(float multiplier, float duration)
+    {
+        speed *= multiplier; // Increase the speed by the multiplier
+        speedDownAudioSource.Play(); // Start playing the speed boost music
+
+        yield return new WaitForSeconds(duration); // Wait for the duration of the boost
+
+        speed = originalSpeed; // Reset the speed back to the original value
+        speedDownAudioSource.Stop(); // Stop playing the speed boost music
     }
     public void ActivateShield(float duration)
     {
