@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f115b8fc9829c246ae038d2bff27ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: BALLS
+  message: forward
 --- !u!1 &2939684 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1091511939508877260, guid: 3fe26ef2d13cf4a56ad83d5ce3c34d63, type: 3}
@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f115b8fc9829c246ae038d2bff27ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: LOL
+  message: forward
 --- !u!1 &114245672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f115b8fc9829c246ae038d2bff27ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: E=MC^2
+  message: left
 --- !u!1 &139554273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f115b8fc9829c246ae038d2bff27ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: 69
+  message: left
 --- !u!1 &140307508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,7 +2726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f115b8fc9829c246ae038d2bff27ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: You Suck
+  message: right
 --- !u!1 &540056872
 GameObject:
   m_ObjectHideFlags: 0
@@ -4388,7 +4388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f115b8fc9829c246ae038d2bff27ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Belgium Candy
+  message: left, Almost there!
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -9880,7 +9880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f115b8fc9829c246ae038d2bff27ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Up
+  message: forward
 --- !u!1 &1873212520
 GameObject:
   m_ObjectHideFlags: 0
@@ -9999,7 +9999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f115b8fc9829c246ae038d2bff27ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: BOB
+  message: right
 --- !u!1 &1879853020
 GameObject:
   m_ObjectHideFlags: 0
@@ -10222,7 +10222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f115b8fc9829c246ae038d2bff27ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Virtual Candy
+  message: right
 --- !u!1 &1903722852
 GameObject:
   m_ObjectHideFlags: 0
